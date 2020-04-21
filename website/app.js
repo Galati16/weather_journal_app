@@ -47,6 +47,7 @@ async function getWebApiData(url) {
         const tempCelsius = data.list[0].main.temp - 273.15;
         return tempCelsius;
     } catch (error) {
+        alert('Not a valid German zip code!Try f.e 22559:)');
         console.log('error is:', error);
     }
 };
@@ -75,8 +76,6 @@ async function uploadData(localurl, newTempData, feelings, newDate) {
 };
 /* Function to update DOM */
 async function updateDome(localurl) {
-
-
     const response = await fetch(localurl, {
         method: 'GET',
         headers: {
@@ -85,6 +84,7 @@ async function updateDome(localurl) {
     });
     try {
         const dataFromServer = await response.json();
+        //update DOM elements:
         document.getElementById('date').innerHTML = dataFromServer.date;
         document.getElementById('temp').innerHTML = dataFromServer.temperatur + ' °C';
         document.getElementById('content').innerHTML = dataFromServer.userResponse;
