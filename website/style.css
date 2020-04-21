@@ -54,7 +54,7 @@ body {
 }
 
 #entryHolder {
-    font-size: 1em;
+    font-size: 0.9em;
     display: grid;
     flex-direction: column;
 }
